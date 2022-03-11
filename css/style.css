@@ -262,7 +262,7 @@ img {
     margin: 0 auto;
   }
   .navbar-brand{
-    margin-left: 70px;
+    margin-left: 60px;
   }
   #posts, #liked,#reported {
     grid-template-columns: repeat(1, 1fr);
