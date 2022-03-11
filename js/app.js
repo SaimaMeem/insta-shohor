@@ -51,7 +51,7 @@ const switchTab = (id) => {
 
 const createPost = (post) => {
   // const image = post.image;
-  console.log(post);
+  // console.log(post);
   const div = document.createElement("article");
   div.classList.add("post");
   div.innerHTML = `
@@ -95,8 +95,8 @@ const createPost = (post) => {
 
                   <div class="post__indicators"></div>
 
-                  <button class="post__button post__button--align-right" onclick="reportPost(${post.id
-    })">
+                  <button class="post__button post__button--align-right" 
+                  onclick="reportPost(${post.id})">
                     <i class="fa-solid fa-ban"></i>
                   </button>
                 </div>
@@ -126,8 +126,7 @@ const createPost = (post) => {
                   </div>
                   <span class="post__date-time">30 minutes ago</span>
                 </div>
-              </div>
-      `;
+              </div>`;
   return div;
 };
 
@@ -143,6 +142,8 @@ const showPosts = (posts) => {
 
 const displayLikedPosts = () => {
   const likedPosts = getLikedPosts();
+  // console.log(likedPosts);
+  document.getElementById("liked").innerHTML = '';
   likedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("liked").appendChild(div);
@@ -151,6 +152,7 @@ const displayLikedPosts = () => {
 
 const displayReportedPosts = () => {
   const reportedPosts = getReportedPosts();
+  document.getElementById("reported").innerHTML = '';
   reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("reported").appendChild(div);
