@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Insta-Sohor</title>
+    <title>Insta Sohor</title>
+    <link rel="shortcut icon" href="./images/fav-icon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/style.css" />
     <!-- Latest compiled and minified CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -24,7 +25,8 @@
     <!-- header -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light justify-content-between bg-light px-5">
-            <a class="navbar-brand fw-bold fs-1" href="#">Insta-Sohor</a>
+            <a class="navbar-brand fw-bold fs-1" href="#"><img src="./images/fav-icon.png" alt="" width="60"
+                    height="45">&nbsp; Insta Sohor</a>
             <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -32,38 +34,118 @@
             </button> -->
             <div class="navbar" id="navbarSupportedContent">
                 <!-- <ul class="collapse navbar-collapse navbar-nav mr-auto "> -->
-                    <li class="nav-link active" role="button" onclick="switchTab('posts')">
-                        <i class="fa-solid fa-house text-black"></i>
-                    </li>
+                <li class="nav-link active" role="button" onclick="switchTab('posts')">
+                    <i class="fa-solid fa-house text-black"></i>
+                </li>
 
-                    <li class="nav-link active" role="button" onclick="switchTab('liked-div')">
-                        <i class="fa-solid fa-heart text-danger"></i>
-                    </li>
+                <li class="nav-link active" role="button" onclick="switchTab('liked-div')">
+                    <i class="fa-solid fa-heart text-danger"></i>
+                </li>
 
-                    <li class="nav-link active" role="button" onclick="switchTab('reported-div')">
-                        <i class="fa-solid fa-eye-slash text-black"></i>
-                    </li>
+                <li class="nav-link active" role="button" onclick="switchTab('reported-div')">
+                    <i class="fa-solid fa-eye-slash text-black"></i>
+                </li>
                 <!-- </ul> -->
             </div>
         </nav>
     </header>
     <!-- header -->
-
+    <!-- main -->
     <main class="main container mx-auto p-3">
-        
+
         <div class="mt-5" id="posts">
         </div>
-        <div id ="liked-div">   
-            <h1 class="py-2 fw-bold">Liked Posts</h1>   
+        <div id="liked-div">
+            <h1 class="py-2 fw-bold">Liked Posts</h1>
             <div id="liked" class="grid">
             </div>
         </div>
-        <div id ="reported-div">   
-            <h1 class="py-2 fw-bold">Reported Posts</h1>   
+        <div id="reported-div">
+            <h1 class="py-2 fw-bold">Reported Posts</h1>
             <div id="reported" class="grid">
             </div>
         </div>
+        <!-- JavaScript Questions -->
+        <section class="my-5"  id="js-ques">
+            <h2 class="py-2 fw-bold">JavaScript Questions</h2>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            How does JavaScript works?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            JavaScript is an <strong>interpreted, single-threaded language</strong> which is helps to
+                            make any website interactive. Interpreted means the source code is converted into bytecode
+                            and executed at runtime. Initially, it was only interpreted, but now for better performance,
+                            JS engines use different ways to perform <b>Just-in-Time Compilation (JIT)</b>.
+                            Single-threaded refers that it can only run one operation at a time.
+                            <br>
+                            <br>
+                            It has some abilities which makes it unique from all other languages. In JS, one object can
+                            inherit features from some other objects. It is also known as dynamic weakly typed language.
+                            Because, variables are not declared with data types as int, string etc. and the actual data
+                            types are unknown until runtime.
+
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            How does Event Loop work?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Despite of being a single-threaded language, JavaScript provides an illusion of
+                            multi-threaded system and <b>event loop</b> is the reason behind it. The <b>call stack</b>
+                            in JS, keeps track of all the functions that are to be executed. When a new function is
+                            received, it is pushed into the stack and after completion of the function, it is popped out
+                            of the stack. The <b>event queue</b> in JS, sends new functions to the call stack for
+                            processing. The event loop is a constantly running process that monitors both the queue and
+                            the stack. It constantly checks whether the stack is empty or not. If it is empty, new
+                            functions are included from the event queue. If it is not, then the current function is
+                            processed. When an async function is called, it is sent to a browser API and the API starts
+                            its own single-threaded operation and at the same time, other functions are executed hence
+                            behaving like a multi-threaded system.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Differences between localStorage vs sessionStorage.
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            localStorage and sessionStorage both are read-only interface properties that provides access
+                            to the Document’s local storage object and session storage object respectively.
+                            They are both similar in terms of the ways storing, accessing, removing data. They both have
+                            four methods and they are <b>getItem()</b>, <b>setItem()</b>, <b>removeItem()</b> and
+                            <b>clear()</b>. But they are different in terms of expiration. Local storage data has no
+                            expiration which means they will always be available unless deleted by the user
+                            himself/herself. Whereas, session storage data are cleared when specific browser tab is
+                            closed which is why it is known as <b>"session"</b> storage.
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- JavaScript Questions -->
     </main>
+    <!-- main -->
+
     <footer></footer>
 
     <!-- add javascript  file  -->
