@@ -34,17 +34,17 @@ const displayContent = (text) => {
 const switchTab = (id) => {
   if (id === "posts") {
     document.getElementById("posts").style.display = "grid";
-    document.getElementById("liked").style.display = "none";
-    document.getElementById("reported").style.display = "none";
-  } else if (id === "liked") {
-    document.getElementById("liked").style.display = "block";
+    document.getElementById("liked-div").style.display = "none";
+    document.getElementById("reported-div").style.display = "none";
+  } else if (id === "liked-div") {
+    document.getElementById("liked-div").style.display = "grid";
     document.getElementById("posts").style.display = "none";
-    document.getElementById("reported").style.display = "none";
+    document.getElementById("reported-div").style.display = "none";
     displayLikedPosts();
   } else {
-    document.getElementById("reported").style.display = "block";
+    document.getElementById("reported-div").style.display = "grid";
     document.getElementById("posts").style.display = "none";
-    document.getElementById("liked").style.display = "none";
+    document.getElementById("liked-div").style.display = "none";
     displayReportedPosts();
   }
 };
@@ -55,7 +55,7 @@ const createPost = (post) => {
   const div = document.createElement("article");
   div.classList.add("post");
   div.innerHTML = `
-              <div class="post__header">
+              <div class="col post__header">
                 <div class="post__profile">
                   <a href="https://github.com/ProgrammingHero1" target="_blank" class="post__avatar">
                     <img src="${post.userImage}" alt="User Picture" />  <!-- bug 02 -->
@@ -71,7 +71,7 @@ const createPost = (post) => {
               <div class="post__content">
                 <div class="post__medias">
                   <img
-                    class="post__media cover"
+                    class="post__media"
                     src="${post.image}" 
                     alt="Post Content"
                   />
@@ -97,7 +97,7 @@ const createPost = (post) => {
                   </button>
                 </div>
 
-                <div class="post__content">&nbsp;&nbsp;${displayContent(post.description)}</div>
+                <div class="post__content"><small>&nbsp;&nbsp;${displayContent(post.description)}</small></div>
                 <div class="post__infos">
                   <div class="post__likes">
                     <a href="#" class="post__likes-avatar">
@@ -119,7 +119,7 @@ const createPost = (post) => {
                       ${post.comments[0]?.text}
                     </small>
                   </div>
-                  <span class="post__date-time">30 minutes ago</span>
+                  <span class="post__date-time py-3">30 minutes ago</span>
                 </div>
               </div>`;
   return div;
@@ -148,6 +148,7 @@ const displayLikedPosts = () => {
 const displayReportedPosts = () => {
   const reportedPosts = getReportedPosts();
   document.getElementById("reported").innerHTML = '';
+  // document.getElementById("reported").innerHTML = '<h1>Reported Posts</h1>';
   reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById("reported").appendChild(div);
